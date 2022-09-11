@@ -11,6 +11,7 @@ var layoutServer = "http://localhost:8080",
   catalogServer = "http://localhost:8081",
   cartServer = "http://localhost:8082",
   reviewServer = "http://localhost:8083";
+  userServer = "http://localhost:8084";
 
 function match(domain) {
   return proxy(domain, {
@@ -28,6 +29,10 @@ server.use("/cart", match(cartServer));
 server.use("/products", match(catalogServer));
 
 server.use("/reviews", match(reviewServer));
+
+server.use("/login", match(userServer));
+
+server.use("/register", match(userServer));
 
 server.use("/", match(layoutServer));
 
